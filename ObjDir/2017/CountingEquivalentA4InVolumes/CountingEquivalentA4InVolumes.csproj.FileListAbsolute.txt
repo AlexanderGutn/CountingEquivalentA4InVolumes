@@ -1,0 +1,10 @@
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\bin\Debug\CountingEquivalentA4InVolumes.exe.config
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\bin\Debug\CountingEquivalentA4InVolumes.exe
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\bin\Debug\CountingEquivalentA4InVolumes.pdb
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2017\CountingEquivalentA4InVolumes\CountingEquivalentA4InVolumes.csprojAssemblyReference.cache
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2017\CountingEquivalentA4InVolumes\CountingEquivalentA4InVolumes.Form1.resources
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2017\CountingEquivalentA4InVolumes\CountingEquivalentA4InVolumes.Properties.Resources.resources
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2017\CountingEquivalentA4InVolumes\CountingEquivalentA4InVolumes.csproj.GenerateResource.cache
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2017\CountingEquivalentA4InVolumes\CountingEquivalentA4InVolumes.csproj.CoreCompileInputs.cache
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2017\CountingEquivalentA4InVolumes\CountingEquivalentA4InVolumes.exe
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2017\CountingEquivalentA4InVolumes\CountingEquivalentA4InVolumes.pdb
