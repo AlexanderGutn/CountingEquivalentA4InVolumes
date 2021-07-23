@@ -57,26 +57,24 @@ namespace CountingEquivalentA4InVolumes.Model
                 }
             }
         }
-        public int CountA4Temp;
+        //public int CountA4Temp;
         public int CountA4
         {
             get
             {
-                double d1 = HeightDesign / 297;
-                int h1 = (int)Math.Ceiling((double)(HeightDesign / 297));
+                double d1 = (double)HeightDesign / 297;
+                int h1 = (int)Math.Ceiling(d1);
 
-                double d2 = WidthDesign / 210;
-                int w1 = (int)Math.Ceiling((double)(WidthDesign / 210));
+                double d2 = (double)WidthDesign / 210;
+                int w1 = (int)Math.Ceiling(d2);
 
-                double d3 = HeightDesign / 210;
-                int h2 = (int)Math.Ceiling((double)(HeightDesign / 210));
+                double d3 = (double)HeightDesign / 210;
+                int h2 = (int)Math.Ceiling(d3);
 
-                double d4 = WidthDesign / 297;
-                int w2 = (int)Math.Ceiling((double)(WidthDesign / 297));
+                double d4 = (double)WidthDesign / 297;
+                int w2 = (int)Math.Ceiling(d4);
 
-                int rez = Math.Min(h1 * w1, h2 * w2);
-                return Math.Min(h1*w1,h2*w2);
-
+                return  Math.Min(h1 * w1, h2 * w2); 
             }
         }
             
@@ -87,20 +85,26 @@ namespace CountingEquivalentA4InVolumes.Model
             this.Height = height;
             this.Width = width;
 
-            double d1 = (double) HeightDesign / 297;            
-            int h1 = (int)Math.Ceiling(d1);
+            //double d1 = (double) HeightDesign / 297;            
+            //int h1 = (int)Math.Ceiling(d1);
 
-            double d2 = (double) WidthDesign / 210;
-            int w1 = (int)Math.Ceiling(d2);
+            //double d2 = (double) WidthDesign / 210;
+            //int w1 = (int)Math.Ceiling(d2);
 
-            double d3 = (double)HeightDesign / 210;
-            int h2 = (int)Math.Ceiling(d3);
+            //double d3 = (double)HeightDesign / 210;
+            //int h2 = (int)Math.Ceiling(d3);
 
-            double d4 = (double) WidthDesign / 297;
-            int w2 = (int)Math.Ceiling(d4);
+            //double d4 = (double) WidthDesign / 297;
+            //int w2 = (int)Math.Ceiling(d4);
 
-            int rez = Math.Min(h1 * w1, h2 * w2);
-            CountA4Temp = Math.Min(h1 * w1, h2 * w2);
+            //int rez = Math.Min(h1 * w1, h2 * w2);
+            //CountA4Temp = Math.Min(h1 * w1, h2 * w2);
         }
+
+        public override string ToString()
+        {
+            return Cipher + " | " + Height + " | " + Width + " | " + CountA4;
+        }
+
     }
 }
