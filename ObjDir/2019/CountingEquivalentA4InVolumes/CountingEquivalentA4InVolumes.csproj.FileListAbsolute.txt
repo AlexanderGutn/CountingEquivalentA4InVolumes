@@ -1,0 +1,10 @@
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\bin\Debug\ПИ_Посчитать_число_листов_А4_в_томах.exe.config
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\bin\Debug\ПИ_Посчитать_число_листов_А4_в_томах.exe
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\bin\Debug\ПИ_Посчитать_число_листов_А4_в_томах.pdb
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2019\CountingEquivalentA4InVolumes\CountingEquivalentA4InVolumes.csprojAssemblyReference.cache
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2019\CountingEquivalentA4InVolumes\CountingEquivalentA4InVolumes.Form1.resources
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2019\CountingEquivalentA4InVolumes\CountingEquivalentA4InVolumes.Properties.Resources.resources
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2019\CountingEquivalentA4InVolumes\CountingEquivalentA4InVolumes.csproj.GenerateResource.cache
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2019\CountingEquivalentA4InVolumes\CountingEquivalentA4InVolumes.csproj.CoreCompileInputs.cache
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2019\CountingEquivalentA4InVolumes\ПИ_Посчитать_число_листов_А4_в_томах.exe
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2019\CountingEquivalentA4InVolumes\ПИ_Посчитать_число_листов_А4_в_томах.pdb

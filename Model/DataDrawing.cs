@@ -52,50 +52,48 @@ namespace CountingEquivalentA4InVolumes.Model
 
             ListDrawCipherFormats = new List<DrawCipherFormat>();
 
-            foreach (var draw in drawings)
-            {  
-                if (draw.Title1!= "" || showEmpty)
-                {
-                    ListDrawCipherFormats.Add(new DrawCipherFormat(draw.Title1, (int)draw.Layout.SheetSize.Height, (int)draw.Layout.SheetSize.Width));
-                }
-            }
-
-            ListCipers = new List<Cipher>();
-
-            foreach (var draw in ListDrawCipherFormats)
+            if (drawings != null)
             {
-                int index = ListCipers.FindIndex(x => x.Title == draw.Cipher);
-                if (index == -1)
+                foreach (var draw in drawings)
                 {
-                    ListCipers.Add(new Cipher(draw.Cipher, 1, draw.CountA4));
+                    if (draw.Title1 != "" || showEmpty)
+                    {
+                        ListDrawCipherFormats.Add(new DrawCipherFormat(draw.Title1, (int)draw.Layout.SheetSize.Height, (int)draw.Layout.SheetSize.Width));
+                    }
                 }
-                else
-                {
-                    ListCipers[index].CountDrawing += 1;
-                    ListCipers[index].CountFormatA4 += draw.CountA4;
-                }
-            }
 
-            foreach (var item in ListCipers)
-            {
-                if(item.CountFormatA4 < 249)
-                {
-                    item.Color = Color.Black;
-                }
-                else if(item.CountFormatA4 > 250 && item.CountFormatA4 < 294)
-                {
-                    item.Color = Color.Yellow;
-                }
-                else if (item.CountFormatA4 > 295)
-                {
-                    item.Color = Color.Red;
-                }
-            }
+                ListCipers = new List<Cipher>();
 
+                foreach (var draw in ListDrawCipherFormats)
+                {
+                    int index = ListCipers.FindIndex(x => x.Title == draw.Cipher);
+                    if (index == -1)
+                    {
+                        ListCipers.Add(new Cipher(draw.Cipher, 1, draw.CountA4));
+                    }
+                    else
+                    {
+                        ListCipers[index].CountDrawing += 1;
+                        ListCipers[index].CountFormatA4 += draw.CountA4;
+                    }
+                }
 
+                foreach (var item in ListCipers)
+                {
+                    if (item.CountFormatA4 < 249)
+                    {
+                        item.Color = Color.Black;
+                    }
+                    else if (item.CountFormatA4 > 250 && item.CountFormatA4 < 294)
+                    {
+                        item.Color = Color.Yellow;
+                    }
+                    else if (item.CountFormatA4 > 295)
+                    {
+                        item.Color = Color.Red;
+                    }
+                }
+            } 
         }
-
-
-
     }
 }
