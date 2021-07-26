@@ -14,10 +14,11 @@ namespace CountingEquivalentA4InVolumes.Model
     {
         DrawingHandler drawingHandler;
         TSM.Model model;
-        
-        List<Drawing> drawings = new List<Drawing>();
-        List<DrawCipherFormat> ListDrawCipherFormats = new List<DrawCipherFormat>();
-        List<Cipher> ListCipers = new List<Cipher>();
+        bool showEmpty;
+
+        List<Drawing> drawings;
+        List<DrawCipherFormat> ListDrawCipherFormats;
+        public List<Cipher> ListCipers;
 
         public bool TeklaConnectionStatusModelAndDrawingHandler()
         {
@@ -36,11 +37,12 @@ namespace CountingEquivalentA4InVolumes.Model
             }
         }
 
-        public void GetListDrawings()
+        public void GetListDrawings(bool showEmpty)
         {
             if (model.GetConnectionStatus() && drawingHandler.GetConnectionStatus())
             {
                 DrawingEnumerator drawingEnumerator = drawingHandler.GetDrawings();
+                drawings = new List<Drawing>();
 
                 while (drawingEnumerator.MoveNext())
                 {                    
@@ -48,18 +50,17 @@ namespace CountingEquivalentA4InVolumes.Model
                 }
             }
 
-            
-
-            DrawCipherFormat drawCipherFormat0 = new DrawCipherFormat("КЖ", 420, 1486);
-            DrawCipherFormat drawCipherFormat1 = new DrawCipherFormat("КЖ", 594, 2102);
-            DrawCipherFormat drawCipherFormat2 = new DrawCipherFormat("КЖ", 841, 2378);
-            DrawCipherFormat drawCipherFormat3 = new DrawCipherFormat("КЖ", 1189, 1682);
-            
+            ListDrawCipherFormats = new List<DrawCipherFormat>();
 
             foreach (var draw in drawings)
-            {
-                ListDrawCipherFormats.Add(new DrawCipherFormat(draw.Title1, (int)draw.Layout.SheetSize.Height, (int)draw.Layout.SheetSize.Width));
+            {  
+                if (draw.Title1!= "" || showEmpty)
+                {
+                    ListDrawCipherFormats.Add(new DrawCipherFormat(draw.Title1, (int)draw.Layout.SheetSize.Height, (int)draw.Layout.SheetSize.Width));
+                }
             }
+
+            ListCipers = new List<Cipher>();
 
             foreach (var draw in ListDrawCipherFormats)
             {
@@ -73,8 +74,22 @@ namespace CountingEquivalentA4InVolumes.Model
                     ListCipers[index].CountDrawing += 1;
                     ListCipers[index].CountFormatA4 += draw.CountA4;
                 }
+            }
 
-
+            foreach (var item in ListCipers)
+            {
+                if(item.CountFormatA4 < 249)
+                {
+                    item.Color = Color.Black;
+                }
+                else if(item.CountFormatA4 > 250 && item.CountFormatA4 < 294)
+                {
+                    item.Color = Color.Yellow;
+                }
+                else if (item.CountFormatA4 > 295)
+                {
+                    item.Color = Color.Red;
+                }
             }
 
 

@@ -17,7 +17,7 @@ namespace CountingEquivalentA4InVolumes
     {
         //bool successfulConnectionTekla
 
-        public delegate void MyEventHandler();
+        public delegate void MyEventHandler(bool showEmpty);
         public delegate bool EventHandlerConnectionStatus();
 
         public event MyEventHandler MyEventGetDrawingClick = null;
@@ -30,8 +30,8 @@ namespace CountingEquivalentA4InVolumes
 
             try
             {
-                bool successfulConnectionTekla = EventConnectionStatus.Invoke();                
-
+                bool successfulConnectionTekla = EventConnectionStatus.Invoke();
+                
                 //Metric_Plugin(writePath, writePathStandby, true, "");
             }
             catch (Exception)
@@ -43,8 +43,12 @@ namespace CountingEquivalentA4InVolumes
 
         private void button1_Click(object sender, EventArgs e)
         {
+            MyEventGetDrawingClick.Invoke(cbShowEmpty.Checked);             
+        }
 
-            MyEventGetDrawingClick.Invoke();
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            MyEventGetDrawingClick.Invoke(cbShowEmpty.Checked);
         }
     }
 }

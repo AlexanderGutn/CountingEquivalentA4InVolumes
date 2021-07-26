@@ -29,34 +29,69 @@ namespace CountingEquivalentA4InVolumes
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.bCalculate = new System.Windows.Forms.Button();
+            this.cbShowEmpty = new System.Windows.Forms.CheckBox();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // bCalculate
             // 
-            this.button1.Location = new System.Drawing.Point(146, 291);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.bCalculate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bCalculate.Location = new System.Drawing.Point(483, 415);
+            this.bCalculate.Name = "bCalculate";
+            this.bCalculate.Size = new System.Drawing.Size(201, 23);
+            this.bCalculate.TabIndex = 0;
+            this.bCalculate.Text = "Подсчет количества листов A4";
+            this.bCalculate.UseVisualStyleBackColor = true;
+            this.bCalculate.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cbShowEmpty
+            // 
+            this.cbShowEmpty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbShowEmpty.AutoSize = true;
+            this.cbShowEmpty.Location = new System.Drawing.Point(483, 379);
+            this.cbShowEmpty.Name = "cbShowEmpty";
+            this.cbShowEmpty.Size = new System.Drawing.Size(201, 30);
+            this.cbShowEmpty.TabIndex = 1;
+            this.cbShowEmpty.Text = "Выводить листы с незаполенным \r\nполем Заголовок1";
+            this.cbShowEmpty.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView
+            // 
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(455, 426);
+            this.dataGridView.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(696, 450);
+            this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.cbShowEmpty);
+            this.Controls.Add(this.bCalculate);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Shown += new System.EventHandler(this.Form1_Shown);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bCalculate;
+        private System.Windows.Forms.CheckBox cbShowEmpty;
+        public System.Windows.Forms.DataGridView dataGridView;
     }
 }
 
