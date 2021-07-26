@@ -8,7 +8,7 @@
     <ProjectGuid>{1834AB2E-1132-4A5A-9F51-ABB2E7CDD5D5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>CountingEquivalentA4InVolumes</RootNamespace>
-    <AssemblyName>CountingEquivalentA4InVolumes</AssemblyName>
+    <AssemblyName>ПИ_Посчитать_число_листов_А4_в_томах</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

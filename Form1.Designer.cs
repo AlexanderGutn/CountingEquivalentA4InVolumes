@@ -79,7 +79,7 @@ namespace CountingEquivalentA4InVolumes
             this.Controls.Add(this.bCalculate);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Посчитать число листов А4 в томах";
             this.Shown += new System.EventHandler(this.Form1_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
