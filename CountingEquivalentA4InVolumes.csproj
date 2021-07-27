@@ -39,6 +39,9 @@
     <ApplicationIcon>Library.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ProEngineering">
+      <HintPath>\\192.168.5.3\Сhange\Programs\!!!ВАЖНОЕ!!!\ProEngineering.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

@@ -33,6 +33,7 @@ namespace CountingEquivalentA4InVolumes
             this.bCalculate = new System.Windows.Forms.Button();
             this.cbShowEmpty = new System.Windows.Forms.CheckBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.bFeedBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,11 +70,22 @@ namespace CountingEquivalentA4InVolumes
             this.dataGridView.Size = new System.Drawing.Size(455, 426);
             this.dataGridView.TabIndex = 2;
             // 
+            // bFeedBack
+            // 
+            this.bFeedBack.Location = new System.Drawing.Point(483, 12);
+            this.bFeedBack.Name = "bFeedBack";
+            this.bFeedBack.Size = new System.Drawing.Size(201, 23);
+            this.bFeedBack.TabIndex = 3;
+            this.bFeedBack.Text = "Сообщить о проблеме или идее";
+            this.bFeedBack.UseVisualStyleBackColor = true;
+            this.bFeedBack.Click += new System.EventHandler(this.bFeedBack_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 450);
+            this.Controls.Add(this.bFeedBack);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.cbShowEmpty);
             this.Controls.Add(this.bCalculate);
@@ -92,6 +104,7 @@ namespace CountingEquivalentA4InVolumes
         private System.Windows.Forms.Button bCalculate;
         private System.Windows.Forms.CheckBox cbShowEmpty;
         public System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Button bFeedBack;
     }
 }
 

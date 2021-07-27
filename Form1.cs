@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Tekla.Structures.Drawing;
 using Tekla.Structures.Model;
 using TSM = Tekla.Structures.Model;
+using ProEngineering;
 
 namespace CountingEquivalentA4InVolumes
 {
@@ -30,12 +31,13 @@ namespace CountingEquivalentA4InVolumes
 
             try
             {
-                bool successfulConnectionTekla = EventConnectionStatus.Invoke();
+                bool successfulConnectionTekla = EventConnectionStatus.Invoke();                
                 
-                //Metric_Plugin(writePath, writePathStandby, true, "");
+                Metric.MetricForTry(System.Reflection.Assembly.GetExecutingAssembly().ManifestModule.Name);
             }
-            catch (Exception)
+            catch (Exception Ex)
             {
+                Metric.MetricForCatch(System.Reflection.Assembly.GetExecutingAssembly().ManifestModule.Name, Ex.Message);
             }
         }
 
@@ -49,6 +51,11 @@ namespace CountingEquivalentA4InVolumes
         private void Form1_Shown(object sender, EventArgs e)
         {
             MyEventGetDrawingClick.Invoke(cbShowEmpty.Checked);
+        }
+
+        private void bFeedBack_Click(object sender, EventArgs e)
+        {
+            _ = new FeedBackForm();
         }
     }
 }
