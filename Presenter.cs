@@ -8,16 +8,41 @@ namespace CountingEquivalentA4InVolumes
 {
     class Presenter
     {
-        Model.DataDrawing model = null;
+        Model.DataModel model = null;
         Form1 form1 = null;
 
         public Presenter(Form1 form1)
         {
-            this.model = new Model.DataDrawing();
+            this.model = new Model.DataModel();
             this.form1 = form1;
             this.form1.EventConnectionStatus += form1_ConnectionStatusTekla;
             this.form1.MyEventGetDrawingClick += form1_MyEventGetDrawingClick;
+            this.form1.EventMetricTry += Form1_EventMetricTry;
+            this.form1.EventMetricCatch += Form1_EventMetricCatch;
+            this.form1.EventFeedBack += Form1_EventFeedBack;
+            this.form1.EventClickLogo += Form1_EventClickLogo;
             
+        }
+
+        private void Form1_EventClickLogo(object sender, EventArgs e)
+        {
+            model.OpenWebSite();
+        }
+
+        private void Form1_EventMetricTry()
+        {
+            model.MetricForTry();
+        }
+
+
+        private void Form1_EventMetricCatch(string exaption)
+        {
+            model.MetricForCatch(exaption);
+        }
+
+        private void Form1_EventFeedBack(object sender, EventArgs e)
+        {
+            model.FeedBack();
         }
 
         bool form1_ConnectionStatusTekla()

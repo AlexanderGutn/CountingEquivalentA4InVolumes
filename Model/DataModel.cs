@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using Tekla.Structures.Model;
 using TSM = Tekla.Structures.Model;
 using Tekla.Structures.Drawing;
-
+using ProEngineering;
+using System.Diagnostics;
 
 namespace CountingEquivalentA4InVolumes.Model
 {
-    class DataDrawing
+    class DataModel
     {
         DrawingHandler drawingHandler;
         TSM.Model model;
@@ -19,6 +20,27 @@ namespace CountingEquivalentA4InVolumes.Model
         List<Drawing> drawings;
         List<DrawCipherFormat> ListDrawCipherFormats;
         public List<Cipher> ListCipers;
+
+        public void MetricForTry()
+        {
+            Metric.MetricForTry(System.Reflection.Assembly.GetExecutingAssembly().ManifestModule.Name);
+        }
+        
+        public void MetricForCatch(string exeption)
+        {
+            Metric.MetricForCatch(System.Reflection.Assembly.GetExecutingAssembly().ManifestModule.Name, exeption);
+        }
+
+        public void FeedBack()
+        {
+            _ = new FeedBackForm();
+        }
+
+        public void OpenWebSite()
+        {
+            Process.Start("https://pi21.ru/");
+        }
+
 
         public bool TeklaConnectionStatusModelAndDrawingHandler()
         {

@@ -34,7 +34,9 @@ namespace CountingEquivalentA4InVolumes
             this.cbShowEmpty = new System.Windows.Forms.CheckBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.bFeedBack = new System.Windows.Forms.Button();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // bCalculate
@@ -46,7 +48,7 @@ namespace CountingEquivalentA4InVolumes
             this.bCalculate.TabIndex = 0;
             this.bCalculate.Text = "Подсчет количества листов A4";
             this.bCalculate.UseVisualStyleBackColor = true;
-            this.bCalculate.Click += new System.EventHandler(this.button1_Click);
+            this.bCalculate.Click += new System.EventHandler(this.bCalculate_Click);
             // 
             // cbShowEmpty
             // 
@@ -72,6 +74,7 @@ namespace CountingEquivalentA4InVolumes
             // 
             // bFeedBack
             // 
+            this.bFeedBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.bFeedBack.Location = new System.Drawing.Point(483, 12);
             this.bFeedBack.Name = "bFeedBack";
             this.bFeedBack.Size = new System.Drawing.Size(201, 23);
@@ -80,20 +83,35 @@ namespace CountingEquivalentA4InVolumes
             this.bFeedBack.UseVisualStyleBackColor = true;
             this.bFeedBack.Click += new System.EventHandler(this.bFeedBack_Click);
             // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxLogo.Image = global::CountingEquivalentA4InVolumes.Properties.Resources.ПИ_Логотип_без_фона;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(584, 41);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(100, 50);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxLogo.TabIndex = 4;
+            this.pictureBoxLogo.TabStop = false;
+            this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 450);
+            this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.bFeedBack);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.cbShowEmpty);
             this.Controls.Add(this.bCalculate);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(600, 200);
             this.Name = "Form1";
             this.Text = "Посчитать число листов А4 в томах";
             this.Shown += new System.EventHandler(this.Form1_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,6 +123,7 @@ namespace CountingEquivalentA4InVolumes
         private System.Windows.Forms.CheckBox cbShowEmpty;
         public System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button bFeedBack;
+        private System.Windows.Forms.PictureBox pictureBoxLogo;
     }
 }
 

@@ -15,14 +15,19 @@ using ProEngineering;
 namespace CountingEquivalentA4InVolumes
 {
     public partial class Form1 : Form
-    {
-        //bool successfulConnectionTekla
-
-        public delegate void MyEventHandler(bool showEmpty);
+    { 
+              
         public delegate bool EventHandlerConnectionStatus();
+        public delegate void EventHandlerMetricTry();
+        public delegate void EventHandlerMetricCatch(string exaption);
+        public delegate void MyEventHandler(bool showEmpty);
 
-        public event MyEventHandler MyEventGetDrawingClick = null;
-        public event EventHandlerConnectionStatus EventConnectionStatus = null;
+        public event EventHandlerConnectionStatus EventConnectionStatus;
+        public event EventHandlerMetricTry EventMetricTry;
+        public event EventHandlerMetricCatch EventMetricCatch;
+        public event EventHandler EventFeedBack;
+        public event EventHandler EventClickLogo;
+        public event MyEventHandler MyEventGetDrawingClick;
 
         public Form1()
         {
@@ -31,21 +36,16 @@ namespace CountingEquivalentA4InVolumes
 
             try
             {
-                bool successfulConnectionTekla = EventConnectionStatus.Invoke();                
+                bool successfulConnectionTekla = EventConnectionStatus.Invoke();
+
+                EventMetricTry.Invoke();
                 
-                Metric.MetricForTry(System.Reflection.Assembly.GetExecutingAssembly().ManifestModule.Name);
             }
             catch (Exception Ex)
             {
-                Metric.MetricForCatch(System.Reflection.Assembly.GetExecutingAssembly().ManifestModule.Name, Ex.Message);
+                EventMetricCatch.Invoke(Ex.Message);
+                
             }
-        }
-
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MyEventGetDrawingClick.Invoke(cbShowEmpty.Checked);             
         }
 
         private void Form1_Shown(object sender, EventArgs e)
@@ -55,7 +55,17 @@ namespace CountingEquivalentA4InVolumes
 
         private void bFeedBack_Click(object sender, EventArgs e)
         {
-            _ = new FeedBackForm();
+            EventFeedBack.Invoke(null,null);
+        }
+
+        private void bCalculate_Click(object sender, EventArgs e)
+        {
+            MyEventGetDrawingClick.Invoke(cbShowEmpty.Checked);
+        }
+
+        private void pictureBoxLogo_Click(object sender, EventArgs e)
+        {
+            EventClickLogo.Invoke(null,null);
         }
     }
 }
