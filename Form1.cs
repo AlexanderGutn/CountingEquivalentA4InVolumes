@@ -1,34 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tekla.Structures.Drawing;
-using Tekla.Structures.Model;
-using TSM = Tekla.Structures.Model;
-using ProEngineering;
 
 namespace CountingEquivalentA4InVolumes
 {
     public partial class Form1 : Form
-    { 
-              
+    {               
         public delegate bool EventHandlerConnectionStatus();
         public delegate void EventHandlerMetricTry();
         public delegate void EventHandlerMetricCatch(string exaption);
         public delegate void MyEventHandler(bool showEmpty);
 
-        public event EventHandlerConnectionStatus EventConnectionStatus;
-        public event EventHandlerMetricTry EventMetricTry;
-        public event EventHandlerMetricCatch EventMetricCatch;
-        public event EventHandler EventFeedBack;
-        public event EventHandler EventClickLogo;
-        public event MyEventHandler MyEventGetDrawingClick;
+        private event EventHandlerConnectionStatus eventConnectionStatus;
+        private event EventHandlerMetricTry eventMetricTry;
+        private event EventHandlerMetricCatch eventMetricCatch;
+        private event EventHandler eventFeedBack;
+        private event EventHandler eventClickLogo;
+        private event MyEventHandler eventGetDrawingClick;
 
+        public event EventHandlerConnectionStatus EventConnectionStatus
+        {
+            add => eventConnectionStatus += value;
+            remove => eventConnectionStatus -= value;
+        }
+        public event EventHandlerMetricTry EventMetricTry
+        {
+            add => eventMetricTry += value;
+            remove => eventMetricTry -= value;
+        }
+        public event EventHandlerMetricCatch EventMetricCatch
+        {
+            add => eventMetricCatch += value;
+            remove => eventMetricCatch -= value;
+        }
+        public event EventHandler EventFeedBack
+        {
+            add => eventFeedBack += value;
+            remove => eventFeedBack -= value;
+        }
+        public event EventHandler EventClickLogo
+        {
+            add => eventClickLogo += value;
+            remove => eventClickLogo -= value;
+        }
+
+        public event MyEventHandler EventGetDrawingClick
+        {
+            add => eventGetDrawingClick += value;
+            remove => eventGetDrawingClick -= value;
+        }
         public Form1()
         {
             InitializeComponent();
@@ -36,36 +55,35 @@ namespace CountingEquivalentA4InVolumes
 
             try
             {
-                bool successfulConnectionTekla = EventConnectionStatus.Invoke();
+                bool successfulConnectionTekla = eventConnectionStatus.Invoke();
 
-                EventMetricTry.Invoke();
+                eventMetricTry.Invoke();
                 
             }
             catch (Exception Ex)
             {
-                EventMetricCatch.Invoke(Ex.Message);
-                
+                //eventMetricCatch.Invoke(Ex.Message);                
             }
         }
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            MyEventGetDrawingClick.Invoke(cbShowEmpty.Checked);
+            eventGetDrawingClick.Invoke(cbShowEmpty.Checked);
         }
 
         private void bFeedBack_Click(object sender, EventArgs e)
         {
-            EventFeedBack.Invoke(null,null);
+            eventFeedBack.Invoke(null,null);
         }
 
         private void bCalculate_Click(object sender, EventArgs e)
         {
-            MyEventGetDrawingClick.Invoke(cbShowEmpty.Checked);
+            eventGetDrawingClick.Invoke(cbShowEmpty.Checked);
         }
 
         private void pictureBoxLogo_Click(object sender, EventArgs e)
         {
-            EventClickLogo.Invoke(null,null);
+            eventClickLogo.Invoke(null,null);
         }
     }
 }

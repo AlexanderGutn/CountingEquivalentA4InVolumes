@@ -1,13 +1,8 @@
-﻿using System;
+﻿using ProEngineering;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tekla.Structures.Model;
-using TSM = Tekla.Structures.Model;
-using Tekla.Structures.Drawing;
-using ProEngineering;
 using System.Diagnostics;
+using Tekla.Structures.Drawing;
+using TSM = Tekla.Structures.Model;
 
 namespace CountingEquivalentA4InVolumes.Model
 {
@@ -80,6 +75,8 @@ namespace CountingEquivalentA4InVolumes.Model
                 {
                     if (draw.Title1 != "" || showEmpty)
                     {
+                        string titleEdited = string.Empty;
+
                         ListDrawCipherFormats.Add(new DrawCipherFormat(draw.Title1, (int)draw.Layout.SheetSize.Height, (int)draw.Layout.SheetSize.Width));
                     }
                 }

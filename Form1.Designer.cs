@@ -35,6 +35,7 @@ namespace CountingEquivalentA4InVolumes
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.bFeedBack = new System.Windows.Forms.Button();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.cbStageProject = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
@@ -95,11 +96,22 @@ namespace CountingEquivalentA4InVolumes
             this.pictureBoxLogo.TabStop = false;
             this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
             // 
+            // cbStageProject
+            // 
+            this.cbStageProject.AutoSize = true;
+            this.cbStageProject.Location = new System.Drawing.Point(483, 343);
+            this.cbStageProject.Name = "cbStageProject";
+            this.cbStageProject.Size = new System.Drawing.Size(214, 30);
+            this.cbStageProject.TabIndex = 5;
+            this.cbStageProject.Text = "Вывод для стадии проект \r\n(удаляется информация после \"-ГЧ\")";
+            this.cbStageProject.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 450);
+            this.Controls.Add(this.cbStageProject);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.bFeedBack);
             this.Controls.Add(this.dataGridView);
@@ -124,6 +136,7 @@ namespace CountingEquivalentA4InVolumes
         public System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button bFeedBack;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
+        private System.Windows.Forms.CheckBox cbStageProject;
     }
 }
 

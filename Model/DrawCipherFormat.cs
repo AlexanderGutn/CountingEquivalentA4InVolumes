@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace CountingEquivalentA4InVolumes.Model
 {
@@ -85,27 +80,11 @@ namespace CountingEquivalentA4InVolumes.Model
             this.Cipher = cipher;
             this.Height = height;
             this.Width = width;
-
-            //double d1 = (double) HeightDesign / 297;            
-            //int h1 = (int)Math.Ceiling(d1);
-
-            //double d2 = (double) WidthDesign / 210;
-            //int w1 = (int)Math.Ceiling(d2);
-
-            //double d3 = (double)HeightDesign / 210;
-            //int h2 = (int)Math.Ceiling(d3);
-
-            //double d4 = (double) WidthDesign / 297;
-            //int w2 = (int)Math.Ceiling(d4);
-
-            //int rez = Math.Min(h1 * w1, h2 * w2);
-            //CountA4Temp = Math.Min(h1 * w1, h2 * w2);
         }
 
         public override string ToString()
         {
             return Cipher + " | " + Height + " | " + Width + " | " + CountA4;
         }
-
     }
 }

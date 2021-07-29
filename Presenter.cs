@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CountingEquivalentA4InVolumes
 {
@@ -16,7 +12,7 @@ namespace CountingEquivalentA4InVolumes
             this.model = new Model.DataModel();
             this.form1 = form1;
             this.form1.EventConnectionStatus += form1_ConnectionStatusTekla;
-            this.form1.MyEventGetDrawingClick += form1_MyEventGetDrawingClick;
+            this.form1.EventGetDrawingClick += form1_MyEventGetDrawingClick;
             this.form1.EventMetricTry += Form1_EventMetricTry;
             this.form1.EventMetricCatch += Form1_EventMetricCatch;
             this.form1.EventFeedBack += Form1_EventFeedBack;
