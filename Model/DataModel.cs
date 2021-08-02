@@ -1,6 +1,7 @@
 ﻿using ProEngineering;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 using Tekla.Structures.Drawing;
 using TSM = Tekla.Structures.Model;
 
@@ -54,7 +55,7 @@ namespace CountingEquivalentA4InVolumes.Model
             }
         }
 
-        public void GetListDrawings(bool showEmpty)
+        public void GetListDrawings(bool showEmpty, bool stageProject)
         {
             if (model.GetConnectionStatus() && drawingHandler.GetConnectionStatus())
             {
@@ -63,7 +64,7 @@ namespace CountingEquivalentA4InVolumes.Model
 
                 while (drawingEnumerator.MoveNext())
                 {                    
-                    drawings.Add(drawingEnumerator.Current as Drawing);
+                    drawings.Add(drawingEnumerator.Current);
                 }
             }
 
@@ -75,9 +76,17 @@ namespace CountingEquivalentA4InVolumes.Model
                 {
                     if (draw.Title1 != "" || showEmpty)
                     {
-                        string titleEdited = string.Empty;
+                        string titleEdited = draw.Title1;
 
-                        ListDrawCipherFormats.Add(new DrawCipherFormat(draw.Title1, (int)draw.Layout.SheetSize.Height, (int)draw.Layout.SheetSize.Width));
+                        if (stageProject && draw.Title1.Contains("-ГЧ"))
+                        {
+                            Regex regex = new Regex(@"-ГЧ");
+                            MatchCollection match = regex.Matches(draw.Title1);
+                            //titleEdited = draw.Title1.Substring(0, draw.Title1.IndexOf(match[0].Value)) + "-ГЧ";
+                            titleEdited = draw.Title1.Substring(0, draw.Title1.IndexOf("-ГЧ")) + "-ГЧ";
+                        }
+
+                        ListDrawCipherFormats.Add(new DrawCipherFormat(titleEdited, (int)draw.Layout.SheetSize.Height, (int)draw.Layout.SheetSize.Width));
                     }
                 }
 

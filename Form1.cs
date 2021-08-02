@@ -8,7 +8,7 @@ namespace CountingEquivalentA4InVolumes
         public delegate bool EventHandlerConnectionStatus();
         public delegate void EventHandlerMetricTry();
         public delegate void EventHandlerMetricCatch(string exaption);
-        public delegate void MyEventHandler(bool showEmpty);
+        public delegate void MyEventHandler(bool showEmpty, bool stageProject);
 
         private event EventHandlerConnectionStatus eventConnectionStatus;
         private event EventHandlerMetricTry eventMetricTry;
@@ -68,7 +68,7 @@ namespace CountingEquivalentA4InVolumes
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            eventGetDrawingClick.Invoke(cbShowEmpty.Checked);
+            eventGetDrawingClick.Invoke(cbShowEmpty.Checked, cbStageProject.Checked);
         }
 
         private void bFeedBack_Click(object sender, EventArgs e)
@@ -78,7 +78,7 @@ namespace CountingEquivalentA4InVolumes
 
         private void bCalculate_Click(object sender, EventArgs e)
         {
-            eventGetDrawingClick.Invoke(cbShowEmpty.Checked);
+            eventGetDrawingClick.Invoke(cbShowEmpty.Checked, cbStageProject.Checked);
         }
 
         private void pictureBoxLogo_Click(object sender, EventArgs e)

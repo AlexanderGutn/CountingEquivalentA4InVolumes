@@ -46,9 +46,9 @@ namespace CountingEquivalentA4InVolumes
             return model.TeklaConnectionStatusModelAndDrawingHandler();
         }
 
-        void form1_MyEventGetDrawingClick(bool showEmpty)
+        void form1_MyEventGetDrawingClick(bool showEmpty, bool stageProject)
         {
-            model.GetListDrawings(showEmpty);
+            model.GetListDrawings(showEmpty,stageProject);
             CustomizationDataGridView();
         }
 
