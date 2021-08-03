@@ -36,6 +36,7 @@ namespace CountingEquivalentA4InVolumes
             this.bFeedBack = new System.Windows.Forms.Button();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.cbStageProject = new System.Windows.Forms.CheckBox();
+            this.labInfo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +71,7 @@ namespace CountingEquivalentA4InVolumes
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(12, 12);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(455, 426);
+            this.dataGridView.Size = new System.Drawing.Size(455, 385);
             this.dataGridView.TabIndex = 2;
             // 
             // bFeedBack
@@ -106,11 +107,21 @@ namespace CountingEquivalentA4InVolumes
             this.cbStageProject.Text = "Вывод для стадии проект \r\n(удаляется информация после \"-ГЧ\")";
             this.cbStageProject.UseVisualStyleBackColor = true;
             // 
+            // labInfo
+            // 
+            this.labInfo.AutoSize = true;
+            this.labInfo.Location = new System.Drawing.Point(12, 402);
+            this.labInfo.Name = "labInfo";
+            this.labInfo.Size = new System.Drawing.Size(159, 39);
+            this.labInfo.TabIndex = 6;
+            this.labInfo.Text = "Итого:  \r\nКоличество чертежей - 25\r\nКоличество листов А4 - 10520\r\n";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 450);
+            this.Controls.Add(this.labInfo);
             this.Controls.Add(this.cbStageProject);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.bFeedBack);
@@ -137,6 +148,7 @@ namespace CountingEquivalentA4InVolumes
         private System.Windows.Forms.Button bFeedBack;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.CheckBox cbStageProject;
+        private System.Windows.Forms.Label labInfo;
     }
 }
 

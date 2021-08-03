@@ -12,6 +12,8 @@ namespace CountingEquivalentA4InVolumes.Model
         DrawingHandler drawingHandler;
         TSM.Model model;
         bool showEmpty;
+        int totalCountDriwing;
+        int totalCountFormatA4;
 
         List<Drawing> drawings;
         List<DrawCipherFormat> ListDrawCipherFormats;
@@ -21,7 +23,7 @@ namespace CountingEquivalentA4InVolumes.Model
         {
             Metric.MetricForTry(System.Reflection.Assembly.GetExecutingAssembly().ManifestModule.Name);
         }
-        
+
         public void MetricForCatch(string exeption)
         {
             Metric.MetricForCatch(System.Reflection.Assembly.GetExecutingAssembly().ManifestModule.Name, exeption);
@@ -63,7 +65,7 @@ namespace CountingEquivalentA4InVolumes.Model
                 drawings = new List<Drawing>();
 
                 while (drawingEnumerator.MoveNext())
-                {                    
+                {
                     drawings.Add(drawingEnumerator.Current);
                 }
             }
@@ -80,8 +82,8 @@ namespace CountingEquivalentA4InVolumes.Model
 
                         if (stageProject && draw.Title1.Contains("-ГЧ"))
                         {
-                            Regex regex = new Regex(@"-ГЧ");
-                            MatchCollection match = regex.Matches(draw.Title1);
+                            //Regex regex = new Regex(@"-ГЧ");
+                            //MatchCollection match = regex.Matches(draw.Title1);
                             //titleEdited = draw.Title1.Substring(0, draw.Title1.IndexOf(match[0].Value)) + "-ГЧ";
                             titleEdited = draw.Title1.Substring(0, draw.Title1.IndexOf("-ГЧ")) + "-ГЧ";
                         }
@@ -106,6 +108,9 @@ namespace CountingEquivalentA4InVolumes.Model
                     }
                 }
 
+                ListCipers.ForEach(x => totalCountDriwing += x.CountDrawing);
+                ListCipers.ForEach(x => totalCountFormatA4 += x.CountFormatA4);
+
                 foreach (var item in ListCipers)
                 {
                     if (item.CountFormatA4 < 249)
@@ -121,7 +126,15 @@ namespace CountingEquivalentA4InVolumes.Model
                         item.Color = Color.Red;
                     }
                 }
-            } 
+            }
+        }
+
+        public string Info()
+        {
+            return $"Итого: \n" +
+$"Количество чертежей - {totalCountDriwing} \n" +
+$"Количество листов А4 - {totalCountFormatA4}";
+
         }
     }
 }

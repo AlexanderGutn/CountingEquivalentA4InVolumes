@@ -9,6 +9,7 @@ namespace CountingEquivalentA4InVolumes
         public delegate void EventHandlerMetricTry();
         public delegate void EventHandlerMetricCatch(string exaption);
         public delegate void MyEventHandler(bool showEmpty, bool stageProject);
+        public delegate string EventHandlerInfo();
 
         private event EventHandlerConnectionStatus eventConnectionStatus;
         private event EventHandlerMetricTry eventMetricTry;
@@ -16,6 +17,7 @@ namespace CountingEquivalentA4InVolumes
         private event EventHandler eventFeedBack;
         private event EventHandler eventClickLogo;
         private event MyEventHandler eventGetDrawingClick;
+        private event EventHandlerInfo eventGetInfo;
 
         public event EventHandlerConnectionStatus EventConnectionStatus
         {
@@ -48,6 +50,12 @@ namespace CountingEquivalentA4InVolumes
             add => eventGetDrawingClick += value;
             remove => eventGetDrawingClick -= value;
         }
+
+        public event EventHandlerInfo EventGetInfo
+        {
+            add => eventGetInfo += value;
+            remove => eventGetInfo -= value;
+        }
         public Form1()
         {
             InitializeComponent();
@@ -69,6 +77,7 @@ namespace CountingEquivalentA4InVolumes
         private void Form1_Shown(object sender, EventArgs e)
         {
             eventGetDrawingClick.Invoke(cbShowEmpty.Checked, cbStageProject.Checked);
+            //eventGetInfo.Invoke();
         }
 
         private void bFeedBack_Click(object sender, EventArgs e)
@@ -79,11 +88,15 @@ namespace CountingEquivalentA4InVolumes
         private void bCalculate_Click(object sender, EventArgs e)
         {
             eventGetDrawingClick.Invoke(cbShowEmpty.Checked, cbStageProject.Checked);
+            //eventGetInfo.Invoke();
         }
 
         private void pictureBoxLogo_Click(object sender, EventArgs e)
         {
             eventClickLogo.Invoke(null,null);
         }
+
+        public string Info {set=> this.labInfo.Text=value; }
+
     }
 }

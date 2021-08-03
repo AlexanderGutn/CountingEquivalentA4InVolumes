@@ -16,8 +16,7 @@ namespace CountingEquivalentA4InVolumes
             this.form1.EventMetricTry += Form1_EventMetricTry;
             this.form1.EventMetricCatch += Form1_EventMetricCatch;
             this.form1.EventFeedBack += Form1_EventFeedBack;
-            this.form1.EventClickLogo += Form1_EventClickLogo;
-            
+            this.form1.EventClickLogo += Form1_EventClickLogo;   
         }
 
         private void Form1_EventClickLogo(object sender, EventArgs e)
@@ -50,6 +49,7 @@ namespace CountingEquivalentA4InVolumes
         {
             model.GetListDrawings(showEmpty,stageProject);
             CustomizationDataGridView();
+            form1.Info = model.Info();
         }
 
         void CustomizationDataGridView()
