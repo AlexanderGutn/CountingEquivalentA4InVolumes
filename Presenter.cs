@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading.Tasks;
+using System.Timers;
 
 namespace CountingEquivalentA4InVolumes
 {
@@ -6,6 +8,7 @@ namespace CountingEquivalentA4InVolumes
     {
         Model.DataModel model = null;
         Form1 form1 = null;
+        delegate void Progress(int i);
 
         public Presenter(Form1 form1)
         {
@@ -16,7 +19,20 @@ namespace CountingEquivalentA4InVolumes
             this.form1.EventMetricTry += Form1_EventMetricTry;
             this.form1.EventMetricCatch += Form1_EventMetricCatch;
             this.form1.EventFeedBack += Form1_EventFeedBack;
-            this.form1.EventClickLogo += Form1_EventClickLogo;   
+            this.form1.EventClickLogo += Form1_EventClickLogo;
+
+            this.model.eventGetCountTotal += Model_eventGetCountTotal;
+            this.model.eventGetCount += Model_eventGetCount;
+        }
+
+        private void Model_eventGetCount(int count)
+        {            
+            form1.progressBar.Invoke(new Progress((s) => form1.progressBar.Value = s), count);
+        }
+
+        private void Model_eventGetCountTotal(int count)
+        {
+            form1.progressBar.Invoke(new Progress((s) => form1.progressBar.Maximum = s), count);
         }
 
         private void Form1_EventClickLogo(object sender, EventArgs e)
@@ -45,11 +61,25 @@ namespace CountingEquivalentA4InVolumes
             return model.TeklaConnectionStatusModelAndDrawingHandler();
         }
 
-        void form1_MyEventGetDrawingClick(bool showEmpty, bool stageProject)
+        async void form1_MyEventGetDrawingClick(bool showEmpty, bool stageProject)
         {
-            model.GetListDrawings(showEmpty,stageProject);
+            form1.bCalculate.Enabled = false;
+            form1.progressBar.Visible = true;
+            form1.progressBar.Value = 0;
+            DateTime start = DateTime.Now;
+            this.form1.label1.Text = "0";
+
+            Task task = new Task(() => model.GetListDrawings(showEmpty, stageProject));
+            task.Start();            
+            await task;
+
+            //model.GetListDrawings(showEmpty, stageProject);
+            //await Task.Run(() => model.GetListDrawings(showEmpty, stageProject));            
             CustomizationDataGridView();
             form1.Info = model.Info();
+            this.form1.label1.Text = (DateTime.Now - start).TotalMilliseconds.ToString();
+            form1.bCalculate.Enabled = true;
+            form1.progressBar.Visible = false;
         }
 
         void CustomizationDataGridView()
@@ -79,8 +109,7 @@ namespace CountingEquivalentA4InVolumes
                         form1.dataGridView.Rows[i].DefaultCellStyle.BackColor = System.Drawing.Color.Red;
                     }
                 }
-            }
-                       
+            }                       
         }
     }
 }

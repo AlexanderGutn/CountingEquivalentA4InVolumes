@@ -76,8 +76,7 @@ namespace CountingEquivalentA4InVolumes
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            eventGetDrawingClick.Invoke(cbShowEmpty.Checked, cbStageProject.Checked);
-            //eventGetInfo.Invoke();
+            //eventGetDrawingClick.Invoke(cbShowEmpty.Checked, cbStageProject.Checked);            
         }
 
         private void bFeedBack_Click(object sender, EventArgs e)

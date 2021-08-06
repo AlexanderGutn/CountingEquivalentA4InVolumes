@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Tekla.Structures.Drawing;
 using TSM = Tekla.Structures.Model;
 
@@ -14,6 +15,10 @@ namespace CountingEquivalentA4InVolumes.Model
         bool showEmpty;
         int totalCountDriwing;
         int totalCountFormatA4;
+        public delegate void EventHandlerCount(int count);
+
+        public event EventHandlerCount eventGetCountTotal;
+        public event EventHandlerCount eventGetCount;
 
         List<Drawing> drawings;
         List<DrawCipherFormat> ListDrawCipherFormats;
@@ -64,11 +69,21 @@ namespace CountingEquivalentA4InVolumes.Model
                 DrawingEnumerator drawingEnumerator = drawingHandler.GetDrawings();
                 drawings = new List<Drawing>();
 
+                int countTotal = drawingEnumerator.GetSize();
+                eventGetCountTotal.Invoke(countTotal);
+                //EventHandlerCount.In
+                int i = 0;
                 while (drawingEnumerator.MoveNext())
                 {
                     drawings.Add(drawingEnumerator.Current);
-                }
+                    i++;                    
+                    int countCurrent = i;
+                    eventGetCount.Invoke(countCurrent);
+                }                
             }
+
+            
+
 
             ListDrawCipherFormats = new List<DrawCipherFormat>();
 

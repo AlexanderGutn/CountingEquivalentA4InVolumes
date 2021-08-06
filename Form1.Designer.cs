@@ -37,6 +37,8 @@ namespace CountingEquivalentA4InVolumes
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.cbStageProject = new System.Windows.Forms.CheckBox();
             this.labInfo = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +46,7 @@ namespace CountingEquivalentA4InVolumes
             // bCalculate
             // 
             this.bCalculate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bCalculate.Location = new System.Drawing.Point(483, 415);
+            this.bCalculate.Location = new System.Drawing.Point(483, 418);
             this.bCalculate.Name = "bCalculate";
             this.bCalculate.Size = new System.Drawing.Size(201, 23);
             this.bCalculate.TabIndex = 0;
@@ -99,6 +101,7 @@ namespace CountingEquivalentA4InVolumes
             // 
             // cbStageProject
             // 
+            this.cbStageProject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cbStageProject.AutoSize = true;
             this.cbStageProject.Location = new System.Drawing.Point(483, 343);
             this.cbStageProject.Name = "cbStageProject";
@@ -109,6 +112,7 @@ namespace CountingEquivalentA4InVolumes
             // 
             // labInfo
             // 
+            this.labInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labInfo.AutoSize = true;
             this.labInfo.Location = new System.Drawing.Point(12, 402);
             this.labInfo.Name = "labInfo";
@@ -116,11 +120,33 @@ namespace CountingEquivalentA4InVolumes
             this.labInfo.TabIndex = 6;
             this.labInfo.Text = "Итого:  \r\nКоличество чертежей - 25\r\nКоличество листов А4 - 10520\r\n";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(199, 400);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(30, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Time";
+            this.label1.Visible = false;
+            // 
+            // progressBar
+            // 
+            this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar.Location = new System.Drawing.Point(193, 418);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(274, 23);
+            this.progressBar.TabIndex = 8;
+            this.progressBar.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(696, 450);
+            this.Controls.Add(this.progressBar);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.labInfo);
             this.Controls.Add(this.cbStageProject);
             this.Controls.Add(this.pictureBoxLogo);
@@ -141,14 +167,15 @@ namespace CountingEquivalentA4InVolumes
         }
 
         #endregion
-
-        private System.Windows.Forms.Button bCalculate;
         private System.Windows.Forms.CheckBox cbShowEmpty;
         public System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button bFeedBack;
         private System.Windows.Forms.PictureBox pictureBoxLogo;
         private System.Windows.Forms.CheckBox cbStageProject;
         private System.Windows.Forms.Label labInfo;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Button bCalculate;
+        public System.Windows.Forms.ProgressBar progressBar;
     }
 }
 
