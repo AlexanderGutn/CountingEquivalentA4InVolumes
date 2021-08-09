@@ -116,9 +116,9 @@ namespace CountingEquivalentA4InVolumes
             this.labInfo.AutoSize = true;
             this.labInfo.Location = new System.Drawing.Point(12, 402);
             this.labInfo.Name = "labInfo";
-            this.labInfo.Size = new System.Drawing.Size(159, 39);
+            this.labInfo.Size = new System.Drawing.Size(126, 52);
             this.labInfo.TabIndex = 6;
-            this.labInfo.Text = "Итого:  \r\nКоличество чертежей - 25\r\nКоличество листов А4 - 10520\r\n";
+            this.labInfo.Text = "Итого:  \r\nКоличество чертежей - \r\nКоличество листов А4 -\r\n\r\n";
             // 
             // label1
             // 

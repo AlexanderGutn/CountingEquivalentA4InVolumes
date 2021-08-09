@@ -12,7 +12,7 @@ namespace CountingEquivalentA4InVolumes.Model
     {
         DrawingHandler drawingHandler;
         TSM.Model model;
-        bool showEmpty;
+        //private readonly bool showEmpty;
         int totalCountDriwing;
         int totalCountFormatA4;
         public delegate void EventHandlerCount(int count);
@@ -71,7 +71,7 @@ namespace CountingEquivalentA4InVolumes.Model
 
                 int countTotal = drawingEnumerator.GetSize();
                 eventGetCountTotal.Invoke(countTotal);
-                //EventHandlerCount.In
+                
                 int i = 0;
                 while (drawingEnumerator.MoveNext())
                 {
@@ -80,10 +80,7 @@ namespace CountingEquivalentA4InVolumes.Model
                     int countCurrent = i;
                     eventGetCount.Invoke(countCurrent);
                 }                
-            }
-
-            
-
+            }  
 
             ListDrawCipherFormats = new List<DrawCipherFormat>();
 
@@ -122,6 +119,9 @@ namespace CountingEquivalentA4InVolumes.Model
                         ListCipers[index].CountFormatA4 += draw.CountA4;
                     }
                 }
+
+                totalCountDriwing = 0;
+                totalCountFormatA4 = 0;
 
                 ListCipers.ForEach(x => totalCountDriwing += x.CountDrawing);
                 ListCipers.ForEach(x => totalCountFormatA4 += x.CountFormatA4);

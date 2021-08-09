@@ -70,13 +70,13 @@ namespace CountingEquivalentA4InVolumes
             }
             catch (Exception Ex)
             {
-                //eventMetricCatch.Invoke(Ex.Message);                
+                eventMetricCatch.Invoke(Ex.Message);                
             }
         }
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            //eventGetDrawingClick.Invoke(cbShowEmpty.Checked, cbStageProject.Checked);            
+            eventGetDrawingClick.Invoke(cbShowEmpty.Checked, cbStageProject.Checked);            
         }
 
         private void bFeedBack_Click(object sender, EventArgs e)
