@@ -11,3 +11,7 @@ C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2019\CountingE
 C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\bin\Debug\ProEngineering.dll
 C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2019\CountingEquivalentA4InVolumes\ПИ_Посчитать_число_листов_А4_в_томах.exe.config
 C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\ObjDir\2019\CountingEquivalentA4InVolumes\CountingEquivalentA4InVolumes.csproj.CopyComplete
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\bin\Release\ПИ_Посчитать_число_листов_А4_в_томах.exe.config
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\bin\Release\ПИ_Посчитать_число_листов_А4_в_томах.exe
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\bin\Release\ПИ_Посчитать_число_листов_А4_в_томах.pdb
+C:\Users\user37\source\repos\CountingEquivalentA4InVolumes\bin\Release\ProEngineering.dll
